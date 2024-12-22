@@ -3,9 +3,12 @@ import styled from 'styled-components';
 const Home = (props) => {
   return ( 
     <Container> 
-      <div></div> 
-      <div></div>
-      <div></div>
+     
+      <div>
+        <div className="Terminal"></div>
+        <div className="popPhoto"></div>
+        </div>
+    
     </Container>
   );
 };
