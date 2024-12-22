@@ -5,6 +5,7 @@ const Home = (props) => {
     <Container> 
       <div></div> 
       <div></div>
+      <div></div>
     </Container>
   );
 };
