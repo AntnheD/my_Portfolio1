@@ -1,14 +1,15 @@
 import styled from 'styled-components';
-
+import PortfolioTerminal from './PortfolioTerminal';
 const Home = (props) => {
   return ( 
-    <Container> 
+    <NavH> 
      
       <Homediv>
         <Terminal>
           
           <Thead><h4>helow</h4></Thead>
-          <Tbody></Tbody>
+          <Tbody><PortfolioTerminal/>
+            </Tbody>
            </Terminal>
         <PopPhoto>
           <Inerframe/>
@@ -16,11 +17,11 @@ const Home = (props) => {
         </PopPhoto>
       </Homediv>
     
-    </Container>
+    </NavH>
   );
 };
 
-const Container = styled.section`
+const NavH = styled.nav`
   background-image: url("./public/images/home-Background.jpg");
   background-size: cover;
   background-position: center;
@@ -40,56 +41,52 @@ margin-top: 5rem;
   align-items: center;
   height: 100%;
   width: 100%;
-  opacity: 0.5;
+  
   border: 2px solid rgba(235, 40, 40, 0.5); 
  justify-content: space-around;
   
 `;
 
 const Terminal = styled.div`
-margin-top: 5rem;
+margin-top: 10rem;
+ opacity: 0.9;
 font-family: "Courier New", Courier, monospace;
 font-size: 1.5rem;
 font-weight: 600;
-  background-color: rgba(5, 5, 5, 0.98);
-  border: 1px solid rgba(238, 12, 12, 0.5);
-  padding: 2px;
-  
-  margin-bottom: 2rem; 
-  margin-left: 10px;
-  height: 80%;
-  width: 400px;
+background-color: rgba(5, 5, 5, 0.98);
+border: 1px solid rgba(12, 238, 12, 0.5);
+padding: 2px;
+margin-bottom: 5rem; 
+margin-left: 10px;
+height: 80%;
+width: 400px;
+box-shadow:#d0f723;
+overflow: auto; 
 `;
 
 
 const Thead = styled.div`
-marigin-top: 0;
-marigin-right: 0;
-  background-color: rgba(58, 56, 56, 0.5);
- hight: 5%;
- 
-  padding: 1rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-align: center;
-  height: 10%;
-  left: 0;
-  right: 0
-  top: 0;
-  display: flex;
-  justify-content: space-between;
+position:auto;
+top:0;
+left:0;
+right:70px;
+height:70px;
+background-color:#090b13;
+opacity: 1;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 36px;
+width:100%;
+letter-spacing: 16px;
+z-inex:3;
 `;
 const Tbody = styled.div`
-  background-color: rgba(5, 5, 5, 0.98);
-  color: rgba(238, 12, 12, 0.5);
-  hight: 100%;
-  top: 10%;
-  right:0;
-  left: 0;
-  bottom: 0;
-  padding: 1rem;
-  font-size: 1.5rem;
-  font-weight: 600;
+ position: ;
+ border: 1px solid rgb(22, 6, 240);
+  overflow: auto; 
+  text-align: left;
+   opacity: 0.7;
   
 `;
 const PopPhoto = styled.div`
