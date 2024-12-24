@@ -6,8 +6,9 @@ const Home = (props) => {
      
       <Homediv>
         <Terminal>
-          <Thead/>
-          <Tbody/>
+          
+          <Thead><h4>helow</h4></Thead>
+          <Tbody></Tbody>
            </Terminal>
         <PopPhoto>
           <Inerframe/>
@@ -46,15 +47,15 @@ margin-top: 5rem;
 `;
 
 const Terminal = styled.div`
-margin-top: 10rem;
+margin-top: 5rem;
 font-family: "Courier New", Courier, monospace;
 font-size: 1.5rem;
 font-weight: 600;
-font-color:  rgba(54, 245, 37, 0.98);
   background-color: rgba(5, 5, 5, 0.98);
   border: 1px solid rgba(238, 12, 12, 0.5);
-  padding: 1rem; 
-  margin-bottom: 20px; 
+  padding: 2px;
+  
+  margin-bottom: 2rem; 
   margin-left: 10px;
   height: 80%;
   width: 400px;
@@ -62,9 +63,11 @@ font-color:  rgba(54, 245, 37, 0.98);
 
 
 const Thead = styled.div`
+marigin-top: 0;
+marigin-right: 0;
   background-color: rgba(58, 56, 56, 0.5);
-  color: rgba(76, 52, 184, 0.98);
-  bottom-border: 1px solid rgba(102, 238, 12, 0.5);
+ hight: 5%;
+ 
   padding: 1rem;
   font-size: 1.5rem;
   font-weight: 600;
@@ -79,10 +82,15 @@ const Thead = styled.div`
 const Tbody = styled.div`
   background-color: rgba(5, 5, 5, 0.98);
   color: rgba(238, 12, 12, 0.5);
+  hight: 100%;
+  top: 10%;
+  right:0;
+  left: 0;
+  bottom: 0;
   padding: 1rem;
   font-size: 1.5rem;
   font-weight: 600;
-  text-align: center;
+  
 `;
 const PopPhoto = styled.div`
   transform: scale(1.1);
