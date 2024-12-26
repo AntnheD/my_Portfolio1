@@ -62,6 +62,7 @@ height: 80%;
 width: 400px;
 box-shadow:#d0f723;
 overflow: auto; 
+clip-path: polygon(0 0, 100% 0, 100% 99%, 50% 50%, 0 100%);
 `;
 
 
@@ -82,7 +83,7 @@ letter-spacing: 16px;
 z-inex:3;
 `;
 const Tbody = styled.div`
- position: ;
+
  border: 1px solid rgb(22, 6, 240);
   overflow: auto; 
   text-align: left;
