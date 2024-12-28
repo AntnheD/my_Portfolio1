@@ -118,6 +118,8 @@ const Outerframe = styled.div`
   width: 100%;
   height: 100%;
   bootum-left-radius: 10%;
+  clip-path: polygon(0 0, 100% 0, 100% 99%, 50% 50%, 0 100%);
+
 `;
 export default Home;
 
