@@ -120,7 +120,7 @@ const Outerframe = styled.div`
   bootum-left-radius: 10%;
   clip-path: polygon(0 0, 100% 0, 100% 99%, 50% 50%, 0 100%);
 
-`;
+`;/**   whatever thr job */
 export default Home;
 
 
