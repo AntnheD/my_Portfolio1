@@ -81,7 +81,7 @@ span {
                 transform: scaleX(0);
                 transition: transform 0.2s ease-in-out; /* Smoother transition */
                 
- 
+}}
  /* @media (max-width: 768px) {
       display: none;
     }
