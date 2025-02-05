@@ -1,6 +1,6 @@
 'use client';
 import * as React from 'react';
-import Feedback from '../dicoration/somDiscription';
+import Feedback from '../dicoration/Feedback';
 import Skill from '../dicoration/skiles';
 
 export default function Home() {

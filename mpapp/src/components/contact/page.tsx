@@ -13,7 +13,9 @@ export default function Signup() {
   const [status, setStatus] = useState("");
   const categories = ["Frontend", "Backend", "Full-Stack", "Other"];
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -28,21 +30,23 @@ export default function Signup() {
         body: JSON.stringify(formData),
       });
 
+      const result = await response.json();
+
       if (response.ok) {
-        setStatus("Submitted successfully!");
+        setStatus(result.message);
         setFormData({ name: "", email: "", category: "", message: "" });
       } else {
-        setStatus("Submission failed!");
+        setStatus(`Error: ${result.message}`);
       }
     } catch (error) {
-      setStatus("Error occurred!");
+      setStatus("Error occurred while submitting.");
       console.error("Error submitting form:", error);
     }
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-300 p-4">
-      <div className="w-full max-w-md bg-gray-700 p-6 rounded-xl shadow-lg">
+    <div className="flex justify-center items-center min-h-screen bg-gray-400 p-4">
+      <div className="w-full max-w-md bg-gray-400 p-6 rounded-xl shadow-lg">
         <p className="text-gray-400 italic mb-4">Interested in collaborating?</p>
         {status && <p className="text-center text-white">{status}</p>}
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -53,7 +57,9 @@ export default function Signup() {
             value={formData.name}
             onChange={handleChange}
             variant="filled"
-            InputProps={{ style: { backgroundColor: "#333", color: "white" } }}
+            slotProps={{
+              htmlInput: { style: { backgroundColor: "transparent", color: "white" } },
+            }}
           />
           <TextField
             fullWidth
@@ -63,8 +69,9 @@ export default function Signup() {
             value={formData.email}
             onChange={handleChange}
             variant="filled"
-            inputProps={{ autoComplete: "email" }}
-            InputProps={{ style: { backgroundColor: "#333", color: "white" } }}
+            slotProps={{
+              htmlInput: { autoComplete: "email", style: { backgroundColor: "transparent", color: "white" } },
+            }}
           />
           <TextField
             fullWidth
@@ -74,7 +81,9 @@ export default function Signup() {
             value={formData.category}
             onChange={handleChange}
             variant="filled"
-            InputProps={{ style: { backgroundColor: "#333", color: "white" } }}
+            slotProps={{
+              htmlInput: { style: { backgroundColor: "#333", color: "white" } },
+            }}
           >
             {categories.map((option) => (
               <MenuItem key={option} value={option}>
@@ -91,13 +100,15 @@ export default function Signup() {
             value={formData.message}
             onChange={handleChange}
             variant="filled"
-            InputProps={{ style: { backgroundColor: "#333", color: "white" } }}
+            slotProps={{
+              htmlInput: { style: { backgroundColor: "transparent", color: "white" } },
+            }}
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            className="bg-white text-black hover:bg-gray-200"
+            className="bg-white text-black hover:bg-gray-900"
           >
             SUBMIT
           </Button>

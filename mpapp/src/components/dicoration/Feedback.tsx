@@ -10,8 +10,17 @@ interface FeedbackItem {
   imageSrc: string;
 }
 
+// Default feedback data
+const defaultFeedback: FeedbackItem = {
+  feedback: "This is a default feedback message in case the data cannot be loaded.",
+  author: "John Doe",
+  role: "Software Engineer",
+  company: "Example Inc.",
+  imageSrc: "/images/avator1.jpeg", // Provide a default image path
+};
+
 export default function Feedback() {
-  const [randomFeedback, setRandomFeedback] = useState<FeedbackItem | null>(null);
+  const [randomFeedback, setRandomFeedback] = useState<FeedbackItem>(defaultFeedback);
 
   useEffect(() => {
     // Fetch JSON data
@@ -22,12 +31,11 @@ export default function Feedback() {
         const randomIndex = Math.floor(Math.random() * data.length);
         setRandomFeedback(data[randomIndex]);
       })
-      .catch((error) => console.error('Error fetching feedback data:', error));
+      .catch((error) => {
+        console.error('Error fetching feedback data:', error);
+        // If fetching fails, keep the default feedback data
+      });
   }, []);
-
-  if (!randomFeedback) {
-    return <div>Loading...</div>; // Show a loading state
-  }
 
   return (
     <div className="bg-gray-300 text-black p-6 rounded-lg shadow-md max-w-lg mx-auto">

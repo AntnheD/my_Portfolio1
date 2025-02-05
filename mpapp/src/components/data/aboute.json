@@ -24,33 +24,33 @@
   ],
   "imageButtons": [
     {
-      "url": "/static/images/buttons/grayimage1.jpeg",
-      "title": "Breakfast",
-      "link": "/breakfast",
+      "url": "/images/caffeemanag.png",
+      "title": "Cafe System",
+      "link": "https://github.com/AntnheD/cafe-system",
       "width": "40%"
     },
     {
-      "url": "/static/images/buttons/grayimage1.jpeg",
-      "title": "Burgers",
-      "link": "/burgers",
+      "url": "/images/cofee.jpeg",
+      "title": "color sorter",
+      "link": "https://github.com/AntnheD/automatic-coffee-been-color-sorter",
       "width": "30%"
     },
     {
-      "url": "/static/images/buttons/grayimage1.jpeg",
-      "title": "Camea",
-      "link": "/camea",
+      "url": "/images/telegramSMS.jpeg",
+      "title": "telegram to sms",
+      "link": "https://github.com/AntnheD/telegram-to-sms",
       "width": "30%"
     },
     {
-      "url": "/static/images/buttons/grayimage1.jpeg",
-      "title": "Camera",
-      "link": "/camera",
+      "url": "/images/text.png",
+      "title": "TextAdventerGame",
+      "link": "https://github.com/AntnheD/TextAdventerGame",
       "width": "30%"
     },
     {
-      "url": "/static/images/buttons/grayimage1.jpeg",
-      "title": "Camra",
-      "link": "/camra",
+      "url": "/images/moon.png",
+      "title": "moon traking",
+      "link": "https://github.com/AntnheD/reall_time_Moon_traker",
       "width": "30%"
     }
   ]

@@ -1,227 +1,185 @@
-"use client"; // Mark this component as a Client Component
+"use client";
 
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import ButtonBase from '@mui/material/ButtonBase';
-import Typography from '@mui/material/Typography';
-import Link from 'next/link'; // Use next/link instead of react-router-dom
-import { useEffect, useRef, useState } from 'react';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'; // Import the arrow icon
-import ArrowBackIcon from '@mui/icons-material/ArrowBack'; // Import the back arrow icon
+import * as React from "react";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import ButtonBase from "@mui/material/ButtonBase";
+import Typography from "@mui/material/Typography";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-// Import JSON data (adjust path if needed)
-import jsonData from '../data/aboute.json'; // Import the combined JSON
+import jsonData from "../data/aboute.json"; // Import JSON data
 
-// Styled components
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
-  position: 'relative',
+  position: "relative",
   height: 200,
-  flex: '0 0 auto', // Ensure buttons don't shrink
-  marginRight: theme.spacing(2), // Add spacing between buttons
-  [theme.breakpoints.down('sm')]: {
+  flex: "0 0 auto",
+  marginRight: theme.spacing(2),
+  borderRadius: "12px", // Rounded corners
+  overflow: "hidden",
+  [theme.breakpoints.down("sm")]: {
     height: 100,
   },
-  '&:hover, &.Mui-focusVisible': {
+  "&:hover, &.Mui-focusVisible": {
     zIndex: 1,
-    '& .MuiImageBackdrop-root': {
-      opacity: 0.15,
-    },
-    '& .MuiImageMarked-root': {
-      opacity: 0,
-    },
-    '& .MuiTypography-root': {
-      border: '4px solid currentColor',
-    },
+    "& .MuiImageBackdrop-root": { opacity: 0.15 },
+    "& .MuiImageMarked-root": { opacity: 0 },
+    "& .MuiTypography-root": { border: "4px solid currentColor" },
   },
 }));
 
-const ImageContainer = styled('div')({
-  position: 'absolute',
+const ImageContainer = styled("div")({
+  position: "absolute",
   left: 0,
   right: 0,
   top: 0,
   bottom: 0,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center 40%',
+  backgroundSize: "cover",
+  backgroundPosition: "center 40%",
+  borderRadius: "12px", // Rounded corners
 });
 
-const Image = styled('img')({
-  position: 'absolute',
+const Image = styled("img")({
+  position: "absolute",
   left: 0,
   right: 0,
   top: 0,
   bottom: 0,
-  margin: 'auto',
-  display: 'block',
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
+  margin: "auto",
+  display: "block",
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  borderRadius: "12px", // Rounded corners
 });
 
-const ImageBackdrop = styled('span')(({ theme }) => ({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  backgroundColor: theme.palette.common.black,
-  opacity: 0.4,
-  transition: theme.transitions.create('opacity'),
-}));
-
-const ImageMarked = styled('span')(({ theme }) => ({
-  height: 3,
-  width: 18,
-  backgroundColor: theme.palette.common.white,
-  position: 'absolute',
-  bottom: -2,
-  left: 'calc(50% - 9px)',
-  transition: theme.transitions.create('opacity'),
-}));
-
-// Main component
 export default function ButtonBaseDemo() {
-  const imageButtons = jsonData.imageButtons; // Access the imageButtons array
-  const containerRef = useRef<HTMLDivElement>(null);
+  const imageButtons = jsonData.imageButtons;
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [autoScroll, setAutoScroll] = useState(true);
 
-  // Automatic scrolling effect
   useEffect(() => {
-    if (!autoScroll) return;
+    if (!autoScroll || !containerRef.current) return;
 
     const container = containerRef.current;
-    let scrollAmount = 0;
-    const scrollSpeed = 1; // Adjust speed as needed
+    const scrollSpeed = 1;
 
     const scrollInterval = setInterval(() => {
       if (container) {
-        scrollAmount += scrollSpeed;
-        container.scrollLeft = scrollAmount;
-
-        // Reset scroll position when reaching the end
-        if (scrollAmount >= container.scrollWidth - container.clientWidth) {
-          scrollAmount = 0;
+        container.scrollLeft += scrollSpeed;
+        if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
           container.scrollLeft = 0;
         }
       }
-    }, 20); // Adjust interval for smoother or faster scrolling
+    }, 20);
 
     return () => clearInterval(scrollInterval);
   }, [autoScroll]);
 
-  // Toggle auto-scroll
-  const toggleAutoScroll = () => {
-    setAutoScroll((prev) => !prev);
-  };
-
-  // Scroll left
   const scrollLeft = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft -= 200; // Scroll amount for left arrow
+      containerRef.current.scrollLeft -= 200;
     }
   };
 
-  // Scroll right
   const scrollRight = () => {
     if (containerRef.current) {
-      containerRef.current.scrollLeft += 200; // Scroll amount for right arrow
+      containerRef.current.scrollLeft += 200;
     }
   };
 
   return (
-    <Box sx={{ position: 'relative', width: '100%' }}>
+    <Box sx={{ my: 8, px: 2, position: "relative", width: "100%" }}>
       {/* Scrollable container */}
       <Box
         ref={containerRef}
         sx={{
-          display: 'flex',
-          overflowX: 'auto',
-          scrollBehavior: 'smooth',
-          '&::-webkit-scrollbar': {
-            display: 'none', // Hide scrollbar
-          },
+          display: "flex",
+          overflowX: "auto",
+          scrollBehavior: "smooth",
+          "&::-webkit-scrollbar": { display: "none" },
+          gap: 2,
+          py: 2,
         }}
       >
         {imageButtons.map((image) => (
-          <ImageButton
-            focusRipple
-            key={image.title}
-            style={{
-              width: image.width,
-            }}
-          >
+          <ImageButton focusRipple key={image.title} style={{ width: image.width }}>
             <ImageContainer style={{ backgroundImage: `url(${image.url})` }} />
-            <ImageBackdrop className="MuiImageBackdrop-root" />
             <Image src={image.url} alt={image.title} />
             <Link href={image.link} passHref legacyBehavior>
               <Typography
                 component="span"
                 variant="subtitle1"
                 color="inherit"
-                sx={(theme) => ({
-                  position: 'relative',
+                sx={{
+                  position: "relative",
                   p: 4,
                   pt: 2,
-                  pb: `calc(${theme.spacing(1)} + 6px)`,
-                })}
+                  pb: 1,
+                }}
               >
                 {image.title}
-                <ImageMarked className="MuiImageMarked-root" />
               </Typography>
             </Link>
           </ImageButton>
         ))}
       </Box>
 
-      {/* Auto-scroll toggle button */}
-      <Box
-        sx={{
-          position: 'absolute',
-          bottom: 16,
-          right: 16,
-          zIndex: 1,
-        }}
-      >
+      {/* Navigation arrows */}
+      <Box sx={{ position: "absolute", top: "50%", left: 16, transform: "translateY(-50%)", zIndex: 2 }}>
         <ButtonBase
-          onClick={toggleAutoScroll}
+          onClick={scrollLeft}
           sx={{
-            padding: 1,
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            color: 'white',
-            borderRadius: '4px',
+            width: 50,
+            height: 50,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            color: "white",
+            borderRadius: "12px", // Rounded corners
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          {autoScroll ? 'Pause' : 'Play'}
+          <ArrowBackIcon sx={{ fontSize: 30 }} />
         </ButtonBase>
       </Box>
 
-      {/* Navigation arrows */}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          left: 16,
-          zIndex: 2,
-          transform: 'translateY(-50%)',
-        }}
-      >
-        <ButtonBase onClick={scrollLeft}>
-          <ArrowBackIcon sx={{ color: 'white', fontSize: 30 }} />
+      <Box sx={{ position: "absolute", top: "50%", right: 16, transform: "translateY(-50%)", zIndex: 2 }}>
+        <ButtonBase
+          onClick={scrollRight}
+          sx={{
+            width: 50,
+            height: 50,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            color: "white",
+            borderRadius: "12px", // Rounded corners
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <ArrowForwardIcon sx={{ fontSize: 30 }} />
         </ButtonBase>
       </Box>
 
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          right: 16,
-          zIndex: 2,
-          transform: 'translateY(-50%)',
-        }}
-      >
-        <ButtonBase onClick={scrollRight}>
-          <ArrowForwardIcon sx={{ color: 'white', fontSize: 30 }} />
+      {/* Auto-scroll toggle button */}
+      <Box sx={{ position: "absolute", bottom: 16, right: 16, zIndex: 1 }}>
+        <ButtonBase
+          onClick={() => setAutoScroll(!autoScroll)}
+          sx={{
+            width: 50,
+            height: 50,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            color: "white",
+            borderRadius: "12px", // Rounded corners
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {autoScroll ? "❚❚" : "▶"}
         </ButtonBase>
       </Box>
     </Box>

@@ -1,5 +1,6 @@
 import Header from '../components/Header/Header'; // Import Header
-// import Footer from '../components/Footer';
+import Footer from '../components/footer/page';
+import Contact from '../components/inputs/page';
 import Hero from '../components/hero/Hero';
 import About from '../components/aboutme/about';
 import ButtonBaseDemo from '../components/projects/project';
@@ -11,8 +12,9 @@ export default function Home() {
       <Hero/>
       <About/>
       <div className='w-full bg-black h-300 bottom-10'><ButtonBaseDemo/></div>
+      <Contact />
+      <Footer />
       
-      {/* <Footer /> */}
     </div>
   );
 }

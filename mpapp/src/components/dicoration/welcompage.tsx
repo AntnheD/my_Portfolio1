@@ -16,19 +16,19 @@ export default function WelcomePage() {
       </div>
       
       {/* Info Grid Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl w-full text-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl w-full text-center flex-auto">
         <div className="bg-transparent backdrop-blur-md p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold">FILTER</h2>
           <p className="text-gray-400">Categories Available</p>
-          <h3 className="text-3xl font-bold mt-2">12</h3>
-          <p className="text-gray-400">Coding Achievements</p>
+          <h3 className="text-3xl font-bold mt-2">1229</h3>
+          <p className="text-gray-400">Github contributions</p>
         </div>
 
         <div className="bg-transparent backdrop-blur-md p-6 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold">PROJECT</h2>
           <p className="text-gray-400">Software Projects</p>
-          <h3 className="text-3xl font-bold mt-2">20</h3>
-          <p className="text-gray-400">Potential Employers</p>
+          <h3 className="text-3xl font-bold mt-2">39</h3>
+          <p className="text-gray-400">Repositories</p>
         </div>
       </div>
     </div>
