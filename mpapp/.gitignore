@@ -26,10 +26,10 @@ yarn-error.log*
 
 
 # vercel
-.vercel/
+
 
 # typescript
-*.tsbuildinfo
+
 
 # IDE/Editor
 .vscode/
