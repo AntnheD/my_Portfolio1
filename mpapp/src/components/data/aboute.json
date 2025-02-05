@@ -1,0 +1,57 @@
+{
+  "feedback": [
+    {
+      "feedback": "This candidate is highly skilled and a great team player.",
+      "author": "Jane Smith",
+      "role": "Project Manager",
+      "company": "Innovate Inc",
+      "imageSrc": "/images/jane-smith.jpg"
+    },
+    {
+      "feedback": "An excellent developer with a strong attention to detail.",
+      "author": "Mike Johnson",
+      "role": "CTO",
+      "company": "Tech Solutions",
+      "imageSrc": "/images/mike-johnson.jpg"
+    },
+    {
+      "feedback": "Very creative and always delivers on time.",
+      "author": "Sarah Lee",
+      "role": "Design Lead",
+      "company": "Creative Studio",
+      "imageSrc": "/images/sarah-lee.jpg"
+    }
+  ],
+  "imageButtons": [
+    {
+      "url": "/static/images/buttons/grayimage1.jpeg",
+      "title": "Breakfast",
+      "link": "/breakfast",
+      "width": "40%"
+    },
+    {
+      "url": "/static/images/buttons/grayimage1.jpeg",
+      "title": "Burgers",
+      "link": "/burgers",
+      "width": "30%"
+    },
+    {
+      "url": "/static/images/buttons/grayimage1.jpeg",
+      "title": "Camea",
+      "link": "/camea",
+      "width": "30%"
+    },
+    {
+      "url": "/static/images/buttons/grayimage1.jpeg",
+      "title": "Camera",
+      "link": "/camera",
+      "width": "30%"
+    },
+    {
+      "url": "/static/images/buttons/grayimage1.jpeg",
+      "title": "Camra",
+      "link": "/camra",
+      "width": "30%"
+    }
+  ]
+}
