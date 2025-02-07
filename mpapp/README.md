@@ -1,3 +1,8 @@
+zUotTUodHu1tC6RE   samimongo
+
+mongodb+srv://antnhedebebe19:zUotTUodHu1tC6RE@cluster0.gdq6e.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
