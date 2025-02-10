@@ -52,10 +52,10 @@ export default function Footer() {
             <a href="https://www.linkedin.com/in/antnhe-d-2a03552a2/" aria-label="LinkedIn" className="text-black text-2xl">
               <FaLinkedin />
             </a>
-            <a href="#" aria-label="GitHub" className="text-black text-2xl">
+            <a href="https://github.com/AntnheD" aria-label="GitHub" className="text-black text-2xl">
               <FaGithub />
             </a>
-            <a href="#" aria-label="Telegram" className="text-black text-2xl">
+            <a href="https://t.me/Anteeeen2" aria-label="Telegram" className="text-black text-2xl">
               <FaTelegram />
             </a>
           </div>
